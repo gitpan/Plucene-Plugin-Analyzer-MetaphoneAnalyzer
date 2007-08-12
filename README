@@ -16,10 +16,11 @@ This module requires these other modules and libraries:
 
   Plucene
   Text::Metaphone
+  IO::Scalar
 
 COPYRIGHT AND LICENCE
 
-Copyright (C) 2006 by Alan Schwartz
+Copyright (C) 2006-2007 by Alan Schwartz
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.8.3 or,

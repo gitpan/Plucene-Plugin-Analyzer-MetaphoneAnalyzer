@@ -4,7 +4,7 @@ use base 'Plucene::Analysis::Analyzer';
 use 5.006;
 use strict;
 use warnings;
-our $VERSION = '1.0';
+our $VERSION = '1.01';
 use Plucene::Analysis::Standard::StandardTokenizer;
 use Plucene::Plugin::Analyzer::MetaphoneFilter;
 
