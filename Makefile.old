@@ -13,7 +13,7 @@
 #     ABSTRACT_FROM => q[lib/Plucene/Plugin/Analyzer/MetaphoneAnalyzer.pm]
 #     AUTHOR => q[Alan Schwartz <alansz@uic.edu>]
 #     NAME => q[Plucene::Plugin::Analyzer::MetaphoneAnalyzer]
-#     PREREQ_PM => { IO::Scalar=>q[0], Text::Metaphone=>q[0] }
+#     PREREQ_PM => { IO::Scalar=>q[0], Text::Metaphone=>q[0], Plucene::Analysis::Analyzer=>q[0] }
 #     VERSION_FROM => q[lib/Plucene/Plugin/Analyzer/MetaphoneAnalyzer.pm]
 
 # --- MakeMaker post_initialize section:
@@ -54,11 +54,11 @@ DIRFILESEP = /
 DFSEP = $(DIRFILESEP)
 NAME = Plucene::Plugin::Analyzer::MetaphoneAnalyzer
 NAME_SYM = Plucene_Plugin_Analyzer_MetaphoneAnalyzer
-VERSION = 1.01
+VERSION = 1.02
 VERSION_MACRO = VERSION
-VERSION_SYM = 1_01
+VERSION_SYM = 1_02
 DEFINE_VERSION = -D$(VERSION_MACRO)=\"$(VERSION)\"
-XS_VERSION = 1.01
+XS_VERSION = 1.02
 XS_VERSION_MACRO = XS_VERSION
 XS_DEFINE_VERSION = -D$(XS_VERSION_MACRO)=\"$(XS_VERSION)\"
 INST_ARCHLIB = blib/arch
@@ -252,7 +252,7 @@ RCS_LABEL = rcs -Nv$(VERSION_SYM): -q
 DIST_CP = best
 DIST_DEFAULT = tardist
 DISTNAME = Plucene-Plugin-Analyzer-MetaphoneAnalyzer
-DISTVNAME = Plucene-Plugin-Analyzer-MetaphoneAnalyzer-1.01
+DISTVNAME = Plucene-Plugin-Analyzer-MetaphoneAnalyzer-1.02
 
 
 # --- MakeMaker macro section:
@@ -478,11 +478,12 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) '# http://module-build.sourceforge.net/META-spec.html' > META_new.yml
 	$(NOECHO) $(ECHO) '#XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#' >> META_new.yml
 	$(NOECHO) $(ECHO) 'name:         Plucene-Plugin-Analyzer-MetaphoneAnalyzer' >> META_new.yml
-	$(NOECHO) $(ECHO) 'version:      1.01' >> META_new.yml
+	$(NOECHO) $(ECHO) 'version:      1.02' >> META_new.yml
 	$(NOECHO) $(ECHO) 'version_from: lib/Plucene/Plugin/Analyzer/MetaphoneAnalyzer.pm' >> META_new.yml
 	$(NOECHO) $(ECHO) 'installdirs:  site' >> META_new.yml
 	$(NOECHO) $(ECHO) 'requires:' >> META_new.yml
 	$(NOECHO) $(ECHO) '    IO::Scalar:                    0' >> META_new.yml
+	$(NOECHO) $(ECHO) '    Plucene::Analysis::Analyzer:   0' >> META_new.yml
 	$(NOECHO) $(ECHO) '    Text::Metaphone:               0' >> META_new.yml
 	$(NOECHO) $(ECHO) '' >> META_new.yml
 	$(NOECHO) $(ECHO) 'distribution_type: module' >> META_new.yml
@@ -750,12 +751,13 @@ testdb_static :: testdb_dynamic
 # --- MakeMaker ppd section:
 # Creates a PPD (Perl Package Description) for a binary distribution.
 ppd:
-	$(NOECHO) $(ECHO) '<SOFTPKG NAME="$(DISTNAME)" VERSION="1,01,0,0">' > $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '<SOFTPKG NAME="$(DISTNAME)" VERSION="1,02,0,0">' > $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <TITLE>$(DISTNAME)</TITLE>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <ABSTRACT>Metaphone analyzer</ABSTRACT>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <AUTHOR>Alan Schwartz &lt;alansz@uic.edu&gt;</AUTHOR>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <IMPLEMENTATION>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <DEPENDENCY NAME="IO-Scalar" VERSION="0,0,0,0" />' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '        <DEPENDENCY NAME="Plucene-Analysis-Analyzer" VERSION="0,0,0,0" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <DEPENDENCY NAME="Text-Metaphone" VERSION="0,0,0,0" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <OS NAME="$(OSNAME)" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <ARCHITECTURE NAME="i486-linux-gnu-thread-multi" />' >> $(DISTNAME).ppd
